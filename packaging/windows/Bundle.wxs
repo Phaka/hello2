@@ -3,7 +3,7 @@
 	<Bundle Name="Hello" Version="$(var.Version)" Manufacturer="Werner Strydom" UpgradeCode="5e54d4b5-3cc7-49dd-bbe4-48bfa86ef7f7">
 		<BootstrapperApplicationRef Id="WixStandardBootstrapperApplication.RtfLicense" />
 		<Chain>
-			<MsiPackage SourceFile="bin\Release\hello.msi" /> 
+			<MsiPackage SourceFile="$(var.MsiPackagePath)" /> 
 		</Chain>
 	</Bundle>
 </Wix>
