@@ -32,7 +32,7 @@ heat dir %PUBLISHDIR% -ag -scom -sfrag -srd -sreg -nologo -dr HelloPortalDirRef 
 
 pushd %~dp0packaging\windows
 candle.exe -out obj\Release\ -dVersion=%VERSION% -dHelloPortalSourceDir=%PUBLISHDIR% -arch x64 -ext "%WIX%\bin\WixUIExtension.dll" Product.wxs %GENFILE%
-light.exe -out bin\Release\hello.msi -pdbout bin\Release\hello.wixpdb -cultures:null -ext "%WIX%\bin\WixUIExtension.dll" obj\Release\Product.wixobj obj\Release\HelloPortal.wixobj
+light.exe -out bin\Release\hello-%RUNTIME%.msi -pdbout bin\Release\hello.wixpdb -cultures:null -ext "%WIX%\bin\WixUIExtension.dll" obj\Release\Product.wixobj obj\Release\HelloPortal.wixobj
 
 candle.exe -out obj\Release\ -dVersion=%VERSION% -arch x64 -ext "%WIX%\bin\WixBalExtension.dll" Bundle.wxs
 light.exe -out bin\Release\hello_%VERSION%-%RUNTIME%.exe -pdbout bin\Release\Bootstrapper.wixpdb -ext "%WIX%\bin\WixBalExtension.dll" obj\Release\Bundle.wixobj
